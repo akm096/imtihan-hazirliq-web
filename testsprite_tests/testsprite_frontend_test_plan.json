@@ -1,0 +1,1298 @@
+[
+  {
+    "id": "TC001",
+    "title": "Add a new subject from the home page",
+    "description": "Verifies a user can create a new subject via the add-subject modal and see it listed on the home page.",
+    "category": "Subject Management",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Yeni Fənn Əlavə Et\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Yeni Fənn\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Fizika\" into the subject name field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"İstilik hadisələrinə qədər\" into the topic range field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Əlavə et\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Fizika\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"İstilik hadisələrinə qədər\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "Subject name is required validation",
+    "description": "Verifies the add-subject modal blocks saving when the subject name is empty and shows a validation message.",
+    "category": "Subject Management",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Yeni Fənn Əlavə Et\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Add subject modal\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Type \"\" into the subject name field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Əlavə et\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Fənn adı\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"tələb olunur\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "Cancel add-subject modal does not create a subject",
+    "description": "Verifies closing the add-subject modal without saving does not add a new subject card.",
+    "category": "Subject Management",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Yeni Fənn Əlavə Et\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Add subject modal\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Kimya\" into the subject name field"
+      },
+      {
+        "type": "action",
+        "description": "Press Escape"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Add subject modal\" is not visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Kimya\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "Delete a subject after confirming in the confirmation modal",
+    "description": "Verifies a user can delete an existing subject by confirming in the delete confirmation modal.",
+    "category": "Subject Management",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Yeni Fənn Əlavə Et\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Fizika\" into the subject name field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"İstilik hadisələrinə qədər\" into the topic range field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Əlavə et\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Fizika\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the delete icon on the subject card for \"Fizika\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Silmək\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the confirm delete button in the modal"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Fizika\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Delete confirmation modal cancel keeps the subject",
+    "description": "Verifies cancelling the delete confirmation leaves the subject card intact.",
+    "category": "Subject Management",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Yeni Fənn Əlavə Et\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Riyaziyyat\" into the subject name field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Limitlərə qədər\" into the topic range field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Əlavə et\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Riyaziyyat\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the delete icon on the subject card for \"Riyaziyyat\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Delete confirmation modal\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Ləğv et\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Riyaziyyat\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Prevent adding duplicate subjects with the same name (if supported)",
+    "description": "Verifies the UI behavior when attempting to add a subject with a name that already exists (either blocks with message or allows a second card).",
+    "category": "Subject Management",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Yeni Fənn Əlavə Et\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Fizika\" into the subject name field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Bölmə 1\" into the topic range field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Əlavə et\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Fizika\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Yeni Fənn Əlavə Et\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Fizika\" into the subject name field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Bölmə 2\" into the topic range field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Əlavə et\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Fizika\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "Subject list persists after page reload",
+    "description": "Verifies subjects saved from the home page remain visible after reloading the page (LocalStorage persistence).",
+    "category": "Subject Management",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Yeni Fənn Əlavə Et\""
+      },
+      {
+        "type": "action",
+        "description": "Type \"Biologiya\" into the subject name field"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Hüceyrəyə qədər\" into the topic range field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Əlavə et\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Biologiya\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Biologiya\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "Generate topic list from AI on Subject Setup and proceed to Topic Editor",
+    "description": "Verifies that AI-generated topics are displayed on the setup page and can be confirmed to open the topic editor with the topics present.",
+    "category": "Subject Setup & Topic Editor",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"İmtihan\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first subject in the subject list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Mövzuları Təyin Et\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"AI ilə Mövzu Siyahısı Yarat\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Generated topics list\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Təsdiqlə və Plan Qur\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Topic editor topic list\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "Open Topic Editor from Setup using manual topic selection entry point",
+    "description": "Verifies that the user can enter the topic editor flow from the setup page without AI generation and reach the topic editor screen.",
+    "category": "Subject Setup & Topic Editor",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first subject in the subject list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Mövzuları Təyin Et\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Mövzuları Təyin Et\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Topic editor topic list\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Mövzular\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "Add a new topic in Topic Editor",
+    "description": "Verifies that a user can add a topic and see it appear in the topic list.",
+    "category": "Subject Setup & Topic Editor",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first subject in the subject list"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Mövzular\" or \"Topic Editor\" navigation item if present"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Topic editor topic list\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Add topic\" button"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Yeni Mövzu 1\" into \"New topic name\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Save\" topic button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Yeni Mövzu 1\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "Edit an existing topic name in Topic Editor",
+    "description": "Verifies that a user can edit a topic and the updated name is shown in the list.",
+    "category": "Subject Setup & Topic Editor",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first subject in the subject list"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Mövzular\" or \"Topic Editor\" navigation item if present"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Topic editor topic list\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the edit icon/button next to the first topic in the list"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Yenilənmiş Mövzu\" into the \"Topic name\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Save\" edit button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Yenilənmiş Mövzu\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "Remove a topic from the Topic Editor list",
+    "description": "Verifies that a user can remove a topic and it no longer appears in the list.",
+    "category": "Subject Setup & Topic Editor",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first subject in the subject list"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Mövzular\" or \"Topic Editor\" navigation item if present"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Topic editor topic list\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the remove/delete icon/button next to the first topic in the list"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Confirm\" button in the remove confirmation (if shown)"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"No topics\" is visible or the topic count appears reduced"
+      }
+    ]
+  },
+  {
+    "id": "TC013",
+    "title": "AI topic generation failure shows an error message on Setup page",
+    "description": "Verifies that when AI generation fails or returns invalid data, the setup page shows a visible error message indicating failure.",
+    "category": "Subject Setup & Topic Editor",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first subject in the subject list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"AI ilə Mövzu Siyahısı Yarat\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"AI ilə Mövzu Siyahısı Yarat\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"AI\" is visible in an error message"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"uğursuz\" or \"failed\" is visible in an error message"
+      }
+    ]
+  },
+  {
+    "id": "TC014",
+    "title": "From AI error, open manual topic editor and add a topic",
+    "description": "Verifies that after an AI failure, the user can open the manual topic editor and save topics successfully.",
+    "category": "Subject Setup & Topic Editor",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first subject in the subject list"
+      },
+      {
+        "type": "action",
+        "description": "Click \"AI ilə Mövzu Siyahısı Yarat\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"AI\" is visible in an error message"
+      },
+      {
+        "type": "action",
+        "description": "Click the button/link to open the manual topic editor"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Topic editor topic list\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Add topic\" button"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Manual Mövzu 1\" into \"New topic name\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Save\" topic button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Manual Mövzu 1\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC015",
+    "title": "Prevent saving an empty topic name",
+    "description": "Verifies that saving a topic with a blank name is blocked and a visible validation message appears.",
+    "category": "Subject Setup & Topic Editor",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first subject in the subject list"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Mövzular\" or \"Topic Editor\" navigation item if present"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Topic editor topic list\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Add topic\" button"
+      },
+      {
+        "type": "action",
+        "description": "Type \"   \" into \"New topic name\" field"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Save\" topic button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"required\" or \"Boş\" or \"doldurun\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC016",
+    "title": "Plan config blocks generating a plan when exam date is in the past",
+    "description": "Verifies selecting a past exam date shows a validation error and prevents successful plan generation.",
+    "category": "Study Planning (Plan Config & Daily Plan)",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first subject in the subjects list"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Plan\" or \"Plan Config\" in the subject navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the exam date picker is visible"
+      },
+      {
+        "type": "action",
+        "description": "Open the exam date picker"
+      },
+      {
+        "type": "action",
+        "description": "Select a past date"
+      },
+      {
+        "type": "action",
+        "description": "Click \"Planı Yarat\" (Generate plan)"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text indicating the exam date cannot be in the past is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC017",
+    "title": "Daily plan persists completed state after page reload",
+    "description": "Verifies completed topics remain marked as completed after refreshing the Daily Plan view.",
+    "category": "Study Planning (Plan Config & Daily Plan)",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first subject in the subjects list"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Daily\" or \"Günlük\" in the subject navigation"
+      },
+      {
+        "type": "action",
+        "description": "Click the completion checkbox for the first topic in today's list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the first topic shows as completed"
+      },
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first subject in the subjects list"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Daily\" or \"Günlük\" in the subject navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the first topic is still shown as completed"
+      }
+    ]
+  },
+  {
+    "id": "TC018",
+    "title": "Unmarking a completed daily topic updates the UI state",
+    "description": "Verifies a user can toggle a topic from completed back to not completed and the UI updates accordingly.",
+    "category": "Study Planning (Plan Config & Daily Plan)",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first subject in the subjects list"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Daily\" or \"Günlük\" in the subject navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify today's topics list is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the completion checkbox for the first topic in today's list to set it completed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the first topic shows as completed"
+      },
+      {
+        "type": "action",
+        "description": "Click the completion checkbox for the first topic again"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the first topic is shown as not completed"
+      }
+    ]
+  },
+  {
+    "id": "TC019",
+    "title": "View progress statistics for a subject with existing completions",
+    "description": "Verifies the Progress page shows visible completion statistics, percent complete, and streak for a subject that already has completed topics.",
+    "category": "Progress Tracking",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on a subject in the subjects list that is known to already have some completed topics"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Progress\" in the subject navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/progress\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Completed\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"%\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Streak\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC020",
+    "title": "Streak value is displayed and formatted as a number",
+    "description": "Verifies the Progress page displays a streak metric that appears as a numeric value (not blank) for a subject with completions.",
+    "category": "Progress Tracking",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on a subject in the subjects list that is known to already have some completed topics"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Progress\" in the subject navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Streak\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"0\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC021",
+    "title": "Progress charts or visual indicators are visible on the Progress page",
+    "description": "Verifies that the progress visualization area (charts/graph-like indicators) is rendered and visible.",
+    "category": "Progress Tracking",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on a subject in the subjects list that is known to already have some completed topics"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Progress\" in the subject navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Progress chart\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Percent\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC022",
+    "title": "Empty state shown when subject has no completed topics",
+    "description": "Verifies the Progress page shows an empty-state message when there are no completions for the selected subject.",
+    "category": "Progress Tracking",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on a subject in the subjects list that is known to have zero completed topics"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Progress\" in the subject navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/progress\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"No\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"completed\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC023",
+    "title": "Empty state shown when subject has no plan configured",
+    "description": "Verifies the Progress page indicates there is no plan when a subject has not been configured with a study plan.",
+    "category": "Progress Tracking",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on a subject in the subjects list that is known to have no study plan configured"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Progress\" in the subject navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/progress\""
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"No plan\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC024",
+    "title": "Progress page remains readable after scrolling through statistics",
+    "description": "Verifies that key statistics remain present and visible as the user scrolls through the Progress page content.",
+    "category": "Progress Tracking",
+    "priority": "Low",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on a subject in the subjects list that is known to already have some completed topics"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Progress\" in the subject navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Completed\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the bottom of the Progress page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Streak\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC025",
+    "title": "Progress page loads consistently when re-opening from subject navigation",
+    "description": "Verifies that navigating away and returning via in-app navigation shows the Progress page content again without missing statistics.",
+    "category": "Progress Tracking",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on a subject in the subjects list that is known to already have some completed topics"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Progress\" in the subject navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Completed\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Daily\" in the subject navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify URL contains \"/daily\""
+      },
+      {
+        "type": "action",
+        "description": "Click on \"Progress\" in the subject navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Streak\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC026",
+    "title": "Open AI chat and send a question to receive an answer",
+    "description": "Verifies the in-subject AI chat can be opened and returns a visible response after sending a question.",
+    "category": "AI Chat & Quiz",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"İmtihan\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first subject in the subjects list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Daily plan\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on the AI chat open button or assistant area"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"AI Chat\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Nyutonun qanunlarını izah et\" into the chat message input field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Send\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Nyutonun qanunlarını\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC027",
+    "title": "AI chat response shows math formatting when applicable",
+    "description": "Verifies AI chat displays a response that includes visible math-formatted content when the prompt requests equations.",
+    "category": "AI Chat & Quiz",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first subject in the subjects list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Daily plan\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on the AI chat open button or assistant area"
+      },
+      {
+        "type": "action",
+        "description": "Type \"Nyutonun ikinci qanununu formul ilə yaz: F = m*a\" into the chat message input field"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Send\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"F\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"m\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"a\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC028",
+    "title": "Generate a quiz from a topic card with selected size and difficulty",
+    "description": "Verifies quiz generation flow from a topic card works and shows questions in the modal.",
+    "category": "AI Chat & Quiz",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first subject in the subjects list"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Daily plan\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the first topic card in the daily plan list"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Test Yarat\" button on a topic card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Create Quiz\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Select \"5\" from the number of questions dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Select \"Orta\" from the difficulty dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Create Quiz\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Question\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC029",
+    "title": "Complete a generated quiz and submit to see results summary",
+    "description": "Verifies a user can answer quiz questions, submit, and see a results summary with counts and percentage.",
+    "category": "AI Chat & Quiz",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first subject in the subjects list"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the first topic card in the daily plan list"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Test Yarat\" button on a topic card"
+      },
+      {
+        "type": "action",
+        "description": "Select \"5\" from the number of questions dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Select \"Asan\" from the difficulty dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Create Quiz\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Question\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first answer option for the first question"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Submit\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Correct\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"%\" is visible"
+      }
+    ]
+  },
+  {
+    "id": "TC030",
+    "title": "Quiz modal can be closed after quiz generation",
+    "description": "Verifies the quiz modal can be dismissed using the close control after questions are shown.",
+    "category": "AI Chat & Quiz",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first subject in the subjects list"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the first topic card in the daily plan list"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Test Yarat\" button on a topic card"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Create Quiz\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Quiz\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the modal \"Close\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"Quiz\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC031",
+    "title": "Chat input validation: sending an empty message does not create a user message",
+    "description": "Verifies the chat UI prevents sending a blank message and does not add a new message bubble.",
+    "category": "AI Chat & Quiz",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first subject in the subjects list"
+      },
+      {
+        "type": "action",
+        "description": "Click on the AI chat open button or assistant area"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify element \"AI Chat\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the chat message input field"
+      },
+      {
+        "type": "action",
+        "description": "Press Enter"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Nyutonun\" is not visible"
+      }
+    ]
+  },
+  {
+    "id": "TC032",
+    "title": "Quiz configuration requires selecting valid options before creation",
+    "description": "Verifies the quiz modal enforces required selections (size and difficulty) before allowing quiz creation.",
+    "category": "AI Chat & Quiz",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click on the first subject in the subjects list"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the first topic card in the daily plan list"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Test Yarat\" button on a topic card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Create Quiz\" is visible"
+      },
+      {
+        "type": "action",
+        "description": "Click the \"Create Quiz\" button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"Select\" is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify text \"required\" is visible"
+      }
+    ]
+  }
+]

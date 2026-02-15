@@ -1,0 +1,78 @@
+.setup-card {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.setup-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.setup-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.setup-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.setup-value {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.setup-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.setup-desc {
+    text-align: center;
+    font-size: 0.9rem;
+    max-width: 400px;
+}
+
+.setup-btn {
+    width: 100%;
+    max-width: 350px;
+}
+
+.setup-error {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--danger-bg);
+    border: 1px solid rgba(248, 113, 113, 0.2);
+    border-radius: var(--radius-md);
+    color: var(--danger);
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+/* Spinner */
+.spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

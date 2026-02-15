@@ -1,0 +1,140 @@
+.plan-config-layout {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-xl);
+    max-width: 800px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.plan-config-calendar h3 {
+    margin-bottom: var(--space-md);
+}
+
+.selected-date {
+    margin-top: var(--space-md);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.plan-config-settings {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.plan-config-settings h3 {
+    margin-bottom: var(--space-md);
+}
+
+.hours-slider {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+.slider {
+    flex: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--accent-gradient);
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.4);
+    transition: transform var(--transition-fast);
+}
+
+.slider::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+}
+
+.slider::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--accent-gradient);
+    cursor: pointer;
+    border: none;
+}
+
+.hours-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 50px;
+}
+
+.hours-value {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.hours-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.plan-summary {
+    border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+}
+
+.summary-item {
+    text-align: center;
+}
+
+.summary-value {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.summary-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.plan-create-btn {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .plan-config-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .plan-config-calendar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

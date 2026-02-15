@@ -1,0 +1,79 @@
+.calendar-picker {
+    max-width: 360px;
+    padding: var(--space-lg);
+}
+
+.cal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-md);
+}
+
+.cal-title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.cal-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    margin-bottom: var(--space-xs);
+}
+
+.cal-weekday {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    padding: 0.3rem 0;
+}
+
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+}
+
+.cal-cell {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: none;
+    background: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.cal-empty {
+    cursor: default;
+}
+
+.cal-day:hover:not(.disabled):not(.selected) {
+    background: var(--glass-hover);
+}
+
+.cal-day.today {
+    border: 1px solid var(--accent-start);
+    color: var(--accent-start);
+}
+
+.cal-day.selected {
+    background: var(--accent-gradient);
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 0 12px rgba(102, 126, 234, 0.3);
+}
+
+.cal-day.disabled {
+    color: var(--text-muted);
+    opacity: 0.3;
+    cursor: not-allowed;
+}

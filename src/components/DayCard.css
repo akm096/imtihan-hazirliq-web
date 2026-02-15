@@ -1,0 +1,102 @@
+.day-card {
+    transition: all var(--transition-base);
+}
+
+.day-card-today {
+    border-color: var(--accent-start) !important;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.15);
+}
+
+.day-card-done {
+    border-color: var(--success) !important;
+    background: rgba(74, 222, 128, 0.03) !important;
+}
+
+.day-card-past:not(.day-card-done) {
+    opacity: 0.6;
+}
+
+.day-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-md);
+}
+
+.day-card-date {
+    display: flex;
+    flex-direction: column;
+}
+
+.day-card-label {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--text-accent);
+}
+
+.day-card-full-date {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.day-card-status {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.day-card-counter {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.day-card-topics {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.day-topic {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 0.5rem 0.6rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    user-select: none;
+}
+
+.day-topic:hover {
+    background: var(--glass-bg);
+}
+
+.day-topic-done {
+    opacity: 0.6;
+}
+
+.day-topic-done .day-topic-name {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+.day-topic-checkbox {
+    display: none;
+}
+
+.day-topic-check {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    transition: transform var(--transition-fast);
+}
+
+.day-topic:active .day-topic-check {
+    transform: scale(1.2);
+}
+
+.day-topic-name {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}

@@ -1,0 +1,114 @@
+.topic-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-md);
+}
+
+.topic-count {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.topic-items {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: var(--space-lg);
+}
+
+.topic-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 0.65rem 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.topic-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--glass-border);
+}
+
+.topic-number {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--glass-bg);
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.topic-name {
+    flex: 1;
+    font-size: 0.95rem;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.topic-actions {
+    display: flex;
+    gap: 2px;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.topic-item:hover .topic-actions {
+    opacity: 1;
+}
+
+.topic-edit-row {
+    flex: 1;
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+}
+
+.topic-edit-input {
+    flex: 1;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+}
+
+.topic-insert-row {
+    display: flex;
+    gap: var(--space-sm);
+    padding: 0.5rem 0.75rem;
+    padding-left: calc(28px + var(--space-sm) + 0.75rem);
+    align-items: center;
+}
+
+.topic-insert-row .input {
+    flex: 1;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+}
+
+.topic-add-row {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--glass-border);
+}
+
+.topic-add-row .input {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .topic-actions {
+        opacity: 1;
+    }
+}

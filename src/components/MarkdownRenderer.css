@@ -1,0 +1,111 @@
+.md-render {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    word-break: break-word;
+}
+
+.md-p {
+    color: inherit;
+    margin: 0;
+}
+
+.md-p+.md-p {
+    margin-top: 0.3rem;
+}
+
+.md-h1 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0.6rem 0 0.3rem;
+    color: var(--text-primary);
+}
+
+.md-h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0.5rem 0 0.3rem;
+    color: var(--text-primary);
+}
+
+.md-h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0.4rem 0 0.2rem;
+    color: var(--text-primary);
+}
+
+.md-hr {
+    border: none;
+    border-top: 1px solid var(--glass-border);
+    margin: 0.5rem 0;
+}
+
+.md-ul,
+.md-ol {
+    margin: 0.3rem 0;
+    padding-left: 1.3rem;
+}
+
+.md-ul li,
+.md-ol li {
+    margin-bottom: 0.2rem;
+    color: inherit;
+}
+
+.md-inline-code {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-family: "Fira Code", "Cascadia Code", monospace;
+    font-size: 0.82rem;
+    color: var(--accent-end);
+}
+
+.md-code-block {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: 0.7rem 0.9rem;
+    margin: 0.3rem 0;
+    overflow-x: auto;
+    font-family: "Fira Code", "Cascadia Code", monospace;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+}
+
+/* Math expressions */
+.md-math {
+    display: inline;
+    font-family: "Cambria Math", "Times New Roman", serif;
+    font-size: 0.95em;
+    color: var(--accent-end);
+    background: rgba(118, 75, 226, 0.1);
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+}
+
+.md-math-block {
+    display: block;
+    font-family: "Cambria Math", "Times New Roman", serif;
+    font-size: 1.1em;
+    color: var(--accent-end);
+    background: rgba(118, 75, 226, 0.12);
+    padding: 0.5rem 0.8rem;
+    border-radius: var(--radius-md);
+    margin: 0.4rem 0;
+    text-align: center;
+    letter-spacing: 0.04em;
+    border-left: 3px solid var(--accent-end);
+}
+
+.md-spacer {
+    height: 0.35rem;
+}
+
+strong {
+    font-weight: 700;
+    color: var(--text-primary);
+}

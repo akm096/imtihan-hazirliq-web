@@ -1,0 +1,106 @@
+.hero {
+    text-align: center;
+    padding: var(--space-3xl) 0;
+    position: relative;
+    margin-bottom: var(--space-2xl);
+}
+
+.hero-bg-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle,
+            rgba(102, 126, 234, 0.12) 0%,
+            rgba(118, 75, 162, 0.06) 40%,
+            transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-title {
+    font-size: 2.8rem;
+    position: relative;
+    z-index: 1;
+    margin-bottom: var(--space-md);
+}
+
+.gradient-text {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 550px;
+    margin: 0 auto var(--space-xl) auto;
+    position: relative;
+    z-index: 1;
+    line-height: 1.7;
+}
+
+.subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-lg);
+}
+
+/* How it works */
+.how-it-works {
+    margin-top: var(--space-3xl);
+    text-align: center;
+}
+
+.how-it-works h2 {
+    margin-bottom: var(--space-xl);
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+}
+
+.step-card {
+    text-align: center;
+    padding: var(--space-xl) var(--space-lg);
+}
+
+.step-number {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-gradient);
+    border-radius: 50%;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: white;
+    margin: 0 auto var(--space-md) auto;
+}
+
+.step-card h4 {
+    margin-bottom: var(--space-xs);
+}
+
+.step-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .subjects-grid {
+        grid-template-columns: 1fr;
+    }
+}
