@@ -77,11 +77,6 @@ Brauzerdə `http://localhost:5173` ünvanına daxil olun.
 
 ---
 
-## 📸 Ekran Görüntüləri
-
-*(Bura tətbiqin ekran görüntülərini əlavə edə bilərsiniz)*
-
----
 
 ## 🤝 Töhfə Vermək (Contributing)
 
